@@ -1,24 +1,12 @@
 package tic;
 
-public class Matrix {
-    private int[][] matrix = new int[][] {
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    };
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class Check {
+    private int[][] matrix;
     private int winner = 0;
+    private final Logger logger = Logger.getLogger(this.getClass().getName());
 
     private int checkRow(int j){
         for (var i = 0; i <= 10; i++){
@@ -76,7 +64,6 @@ public class Matrix {
     }
 
     private int checkWinner(int result){
-        var winner = 0;
         if (result == 1) {
             winner = 1;
         } else if (result == 32){
@@ -108,11 +95,10 @@ public class Matrix {
 
     public int checkMatrix(){
         if (checkRows() != 0 || checkCols() != 0 || checkDiagonals() != 0){
-            System.out.println("And winner is Player " + winner);
+            logger.log(Level.INFO, "And winner is Player {0}", winner);
             return winner;
         } else if (!isFull())
-            System.out.println("Unfortunately, noone is winner");
-
+            logger.log(Level.INFO, "Unfortunately, noone is winner");
         return winner;
     }
 
@@ -120,13 +106,17 @@ public class Matrix {
         matrix[row][col] = player;
     }
 
+    public void setMatrix(int[][] matrix){
+        this.matrix = matrix;
+    }
+
     private boolean isFull(){
         var full = false;
         for (int[] ints : matrix)
             for (var j = 0; j < matrix[0].length; j++) {
                 full = ints[j] == 0;
-                if (full) return full;
+                if (full) return true;
             }
-        return full;
+        return false;
     }
 }

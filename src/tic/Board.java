@@ -1,17 +1,12 @@
 package tic;
 
 
-import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 
 public class Board {
     private int player = 1;
@@ -19,6 +14,7 @@ public class Board {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
     public BorderPane createBoard(int[][] matrix){
+        mat.setMatrix(matrix);
         var board = new BorderPane();
 
         var stack = new StackPane();

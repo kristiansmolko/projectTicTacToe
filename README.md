@@ -6,7 +6,7 @@ This is a simple project for KASV
 
 ![](https://img.shields.io/badge/version-1.0-green)
 ![](https://img.shields.io/badge/players-2-blue)
-![](https://img.shields.io/badge/minig-game-green)
+![](https://img.shields.io/badge/mini-game-orange)
 
 ## Features
 

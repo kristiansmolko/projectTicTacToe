@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     Board board = new Board();
-    private int[][] matrix = new int[][] {
+    private final int[][] matrix = new int[][] {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -27,9 +27,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        BorderPane root = new BorderPane();
+        var root = new BorderPane();
         root.setCenter(board.createBoard(matrix));
-        Scene scene = new Scene(root, 500, 500);
+        var scene = new Scene(root, 500, 500);
         stage.setScene(scene);
         stage.show();
     }

@@ -10,7 +10,7 @@ import javafx.scene.layout.StackPane;
 
 public class Board {
     private int player = 1;
-    Matrix mat = new Matrix();
+    Check mat = new Check();
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
     public BorderPane createBoard(int[][] matrix){
